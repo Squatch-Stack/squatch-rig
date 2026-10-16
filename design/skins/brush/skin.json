@@ -1,0 +1,179 @@
+{
+  "$schema": "../../schema/skin.schema.json",
+  "format": "cc.squatch.skin/1",
+  "id": "cc.squatch.skin.brush",
+  "name": "Brush",
+  "version": "0.1.0",
+  "author": "Squatch Stack",
+  "license": "CC-BY-4.0",
+  "description": "The house look: a pedal drawn from above with the pen, legends in the hand, and brush marks only where there is signal.",
+  "surfaces": [
+    "web",
+    "ios",
+    "print"
+  ],
+  "tradeDress": "Original artwork drawn for Squatch Stack. No other maker's enclosure colour, knob, lettering or footswitch treatment is copied; the round hex-nut footswitch and the two-over-one knob order are chosen to differ from the circuit's best-known ancestor.",
+  "tokens": {
+    "component": {
+      "legend": {
+        "type": {
+          "$value": {
+            "fontFamily": "{semantic.font.hand}",
+            "fontSize": {
+              "value": 13,
+              "unit": "px"
+            },
+            "fontWeight": 500,
+            "letterSpacing": {
+              "value": 0,
+              "unit": "px"
+            },
+            "lineHeight": 1
+          },
+          "$extensions": {
+            "cc.squatch.type": {
+              "fontStyle": "italic",
+              "textTransform": "none"
+            }
+          }
+        }
+      },
+      "knob": {
+        "ring-width": {
+          "$value": {
+            "value": 4.5,
+            "unit": "px"
+          }
+        }
+      }
+    }
+  },
+  "fonts": [
+    {
+      "family": "Lora",
+      "file": "fonts/lora-latin-italic-var.woff2",
+      "style": "italic",
+      "weight": "400 700",
+      "license": "OFL-1.1",
+      "licenseFile": "fonts/OFL.txt"
+    }
+  ],
+  "art": {
+    "faceplate": "art/face.svg",
+    "knob": {
+      "body": "art/knob.svg",
+      "pointer": "art/pointer.svg"
+    },
+    "footswitch": "art/footswitch.svg",
+    "led": {
+      "on": "art/led-on.svg",
+      "off": "art/led-off.svg"
+    }
+  },
+  "layouts": {
+    "cc.squatch.trail-od": {
+      "face": {
+        "width": 66,
+        "height": 122,
+        "unit": "mm",
+        "enclosure": "125B"
+      },
+      "controls": {
+        "drive": {
+          "x": 17.5,
+          "y": 21,
+          "d": 19
+        },
+        "tone": {
+          "x": 48.5,
+          "y": 21,
+          "d": 19
+        },
+        "level": {
+          "x": 33,
+          "y": 43,
+          "d": 19
+        }
+      },
+      "glyph": {
+        "x": 11,
+        "y": 60,
+        "w": 44,
+        "h": 24
+      },
+      "led": {
+        "x": 33,
+        "y": 90,
+        "d": 6
+      },
+      "footswitch": {
+        "x": 33,
+        "y": 104,
+        "d": 14
+      },
+      "nameplate": {
+        "x": 6,
+        "y": 113,
+        "w": 54,
+        "h": 7
+      }
+    },
+    "form:3-knob": {
+      "face": {
+        "width": 66,
+        "height": 122,
+        "unit": "mm",
+        "enclosure": "125B"
+      },
+      "knobs": [
+        {
+          "x": 17.5,
+          "y": 21,
+          "d": 19
+        },
+        {
+          "x": 48.5,
+          "y": 21,
+          "d": 19
+        },
+        {
+          "x": 33,
+          "y": 43,
+          "d": 19
+        }
+      ],
+      "glyph": {
+        "x": 11,
+        "y": 60,
+        "w": 44,
+        "h": 24
+      },
+      "led": {
+        "x": 33,
+        "y": 90,
+        "d": 6
+      },
+      "footswitch": {
+        "x": 33,
+        "y": 104,
+        "d": 14
+      },
+      "nameplate": {
+        "x": 6,
+        "y": 113,
+        "w": 54,
+        "h": 7
+      }
+    }
+  },
+  "files": {
+    "art/face.svg": "sha256-0cMIgrjVtbrF/yqCi/Ua3Ta2yJMvDBqg2r5qL0BF6k8=",
+    "art/footswitch.svg": "sha256-WfPHJIz4TENpRbjPupmGaYatf++WFN+JECXltRZqp7U=",
+    "art/knob.svg": "sha256-XYe2dsCqy17YhNfUNDotHdp78EiSpXaa+DiQPhGX29w=",
+    "art/led-off.svg": "sha256-+3x1y3BEt7m8Z5M5ReWSsSIY2PC6CN+fmhzF49Ql0sA=",
+    "art/led-on.svg": "sha256-3AyWi30oI+g+gciU8VsuH8t8dDFSbbxVtF6zzzEgb4s=",
+    "art/pointer.svg": "sha256-0XTW0RgtjTUiUR6bh+UN4ULp24u5QcCjkHZLlviMo7U=",
+    "fonts/lora-latin-italic-var.woff2": "sha256-3QKgGqhqPTiNsTSVsTUJr0rxJVH8Oql4rO7MUbjkwXs=",
+    "fonts/OFL.txt": "sha256-MbfN8gZcqKUJbQAZx6RCkvzJZQoI4SyFgNMdL3RJg6M="
+  }
+}

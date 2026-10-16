@@ -1,0 +1,24 @@
+node_modules/
+build/
+staging/
+dist/
+_site/
+_export/
+.work/
+.DS_Store
+*.log
+tests/out/
+.pid
+web/vendor/*.map
+
+# Build outputs are never committed: GitHub Actions builds both nam.wasm files (wasm/ci-build.sh).
+*.wasm
+
+# Amp models stay out of git: only NAM Core's MIT example models are tracked.
+web/models/*.nam
+web/models/*.namb
+!web/models/namcore-example-A1.nam
+!web/models/namcore-example-A2.nam
+
+# A local-only folder some developers keep next to web/ for devices of their own. Never tracked.
+private/

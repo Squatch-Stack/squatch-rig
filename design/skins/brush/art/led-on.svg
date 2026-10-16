@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+<title>Brush lamp, on</title>
+<circle r="44" fill="none" stroke="var(--sq-comp-knob-outline, #1C160E)" stroke-width="3"/>
+<circle r="33" fill="var(--sq-comp-led-on, #9C7208)" stroke="var(--sq-comp-knob-outline, #1C160E)" stroke-width="3"/>
+</svg>

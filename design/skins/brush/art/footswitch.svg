@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+<title>Brush footswitch: a hex nut and a round button</title>
+<polygon points="46,0 23,39.84 -23,39.84 -46,0 -23,-39.84 23,-39.84" fill="var(--sq-comp-footswitch-body, #E8E0D4)" stroke="var(--sq-comp-footswitch-outline, #1C160E)" stroke-width="2.6" stroke-linejoin="round"/>
+<circle r="31" fill="var(--sq-comp-knob-cap, #FCFBF8)" stroke="var(--sq-comp-footswitch-outline, #1C160E)" stroke-width="2.6"/>
+<path d="M-17 -12A21 21 0 0 1 12 -17" fill="none" stroke="var(--sq-comp-knob-track, #CBBFA9)" stroke-width="2" stroke-linecap="round"/>
+</svg>
