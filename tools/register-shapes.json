@@ -1,0 +1,165 @@
+{
+ "version": 1,
+ "_comment": "Shapes of personal data (patterns only; no names). Rebuilt by the development repository, never edited by hand.",
+ "patterns": [
+  {
+   "id": "p-phone-punct",
+   "kind": "phone",
+   "re": "(?<![\\d.,-])(?:\\+?1[ .-]?)?\\(?\\d{3}\\)?[ .-]?\\d{3}[ .-]\\d{4}(?![\\d-])(?![.,]\\d)",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-phone-bare",
+   "kind": "phone",
+   "re": "(?:\\b(?:call|phone|tel|text|cell|mobile|fax|sms|whatsapp|ring|contact|number)\\b[^\\n]{0,40}?(?<![\\dA-Fa-f.|-])(?<!\\| )(?<!\\\":)(?<!\\\": )(?!(?:2147483647|2147483648|4294967295|4294967296|2166136261|2654435761|3735928559|3405691582|3131961357|3432918353|2567483615|2246822507|2246822519|3266489909|3266489917)\\b)|(?<![\\w.])\\+1[ .-]?)[2-9]\\d{2}[2-9]\\d{6}(?![\\dA-Fa-f.-])(?! \\|)",
+   "flags": "i",
+   "severity": "warn",
+   "scope": "all"
+  },
+  {
+   "id": "p-phone-local",
+   "kind": "phone",
+   "re": "(?<![<\\w])\\b(?:call|phone|text|cell|mobile|tel|fax|ring)\\b[^\\n]{0,24}?(?<![\\d-])\\d{3}[ -]\\d{4}(?![\\d-])",
+   "flags": "i",
+   "severity": "warn",
+   "scope": "all"
+  },
+  {
+   "id": "p-street-suffix",
+   "kind": "street",
+   "re": "\\b\\d{1,5} (?:(?:N|S|E|W|NE|NW|SE|SW|North|South|East|West)\\.? )?[A-Z][A-Za-z'’-]+(?: [A-Z][A-Za-z'’-]+)? (?:St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Blvd|Boulevard|Way|Ct|Court|Pl|Place|Cir|Circle|Hwy|Highway|Pkwy|Parkway|Ter|Terrace|Trl|Trail)\\b",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-street-direction",
+   "kind": "street",
+   "re": "\\b\\d{1,5} (?:N|S|E|W|NE|NW|SE|SW)\\.? (?!(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|Ohio|Oklahoma|Oregon|Pennsylvania|Tennessee|Texas|Utah|Vermont|Virginia|Washington|Wisconsin|Wyoming|Dakota|Carolina|Jersey|Mexico|York|Hampshire|Rhode)\\b)(?!(?:Hz|kHz|MHz|GHz|KB|MB|GB|TB|dB|ms|px|bpm|V|W|A|mA|mm|cm|in)\\b)[A-Z][A-Za-z'’-]+\\b",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-street-cued",
+   "kind": "street",
+   "re": "\\b(?:[Aa]t|[Aa]ddress|[Aa]ddr|[Ll]ives|[Hh]ome|[Hh]ouse|[Ss]hip(?:ped)? to|[Mm]ail to|[Dd]eliver(?:ed)? to|[Ss]end to)\\b[:,]? #?\\d{1,5} (?!(?:Hz|kHz|MHz|GHz|KB|MB|GB|TB|dB|ms|px|bpm|V|W|A|mA|mm|cm|in)\\b)(?!(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)\\b)[A-Z][A-Za-z'’-]+(?: [A-Z][A-Za-z'’-]+)?\\b",
+   "flags": "",
+   "severity": "warn",
+   "scope": "all"
+  },
+  {
+   "id": "p-street-unit",
+   "kind": "street",
+   "re": "\\b(?:P\\.?O\\.? Box|Apt|Apartment|Suite|Ste|Unit) #?\\d+[A-Za-z]?\\b(?!\\s+(?:passed|passes|failed|fails|green|ok|skipped|errors?|tests?|cases?|checks?|assertions?|specs?|warnings?|of|total)\\b)",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-state-zip",
+   "kind": "zip",
+   "re": "\\b[A-Z]{2} \\d{5}(?:-\\d{4})?\\b",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-parcel-label",
+   "kind": "parcel",
+   "re": "\\b(?:parcel|APN|tax id|tax map|PIN)\\b(?: (?:id|number|no\\.?|#))?[ :#]{0,3}(?=[A-Z0-9.-]*\\d)[A-Z0-9][A-Z0-9.-]{4,}\\b",
+   "flags": "i",
+   "severity": "warn",
+   "scope": "all"
+  },
+  {
+   "id": "p-parcel-shape",
+   "kind": "parcel",
+   "re": "(?<![\\d-])(?=(?:\\d-?){9,})\\d{1,4}(?:-\\d{1,4}){3,5}(?:\\.\\d{1,4})?(?![\\d-])",
+   "flags": "",
+   "severity": "warn",
+   "scope": "all"
+  },
+  {
+   "id": "p-email-person",
+   "kind": "email",
+   "re": "(?<![\\w.@+-])(?!noreply@anthropic\\.com)[a-z0-9._%+-]+@(?!(?:users\\.noreply\\.github\\.com|example\\.(?:com|org|net|invalid)|localhost)\\b)(?:[a-z0-9-]+\\.)+[a-z]{2,}(?![\\w.-])",
+   "flags": "i",
+   "severity": "warn",
+   "scope": "public"
+  },
+  {
+   "id": "p-private-ip",
+   "kind": "ip",
+   "re": "(?<![\\w.-])(?:10\\.(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)|172\\.(?:1[6-9]|2\\d|3[01])|192\\.168)\\.(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)(?![\\w.-])",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-mdns-host",
+   "kind": "host",
+   "re": "(?:(?<=://)|(?<=@)|(?<=\\bssh )|(?<=\\bscp )|(?<=\\bping )|(?<=\\bcurl )|(?<=\\bwget )|(?<=\\bhost )|(?<=hostname )|(?<=[\\\"']))[a-z0-9][a-z0-9-]*\\.local\\b(?!\\.[a-z0-9])|\\b[a-z0-9][a-z0-9-]*\\.local(?=:\\d{2,5}\\b)",
+   "flags": "i",
+   "severity": "warn",
+   "scope": "all"
+  },
+  {
+   "id": "p-workers-dev",
+   "kind": "host",
+   "re": "\\b[a-z0-9][a-z0-9-]*\\.[a-z0-9][a-z0-9-]*\\.workers\\.dev\\b",
+   "flags": "i",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-r2-dev",
+   "kind": "host",
+   "re": "\\bpub-[0-9a-f]{16,}\\.r2\\.dev\\b",
+   "flags": "i",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-home-path",
+   "kind": "path",
+   "re": "(?<![\\w.-])(?:/Users/(?!Shared\\b|runner\\b|user\\b|you\\b|me\\b|name\\b|username\\b|<)[A-Za-z][\\w.-]{1,30}/|/home/(?!runner\\b|user\\b|you\\b|name\\b|username\\b|<)[a-z][\\w.-]{1,30}/)",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  },
+  {
+   "id": "p-tilde-path",
+   "kind": "path",
+   "re": "(?<![\\w~$/.-])~/[A-Za-z0-9._-]",
+   "flags": "",
+   "severity": "warn",
+   "scope": "public"
+  },
+  {
+   "id": "p-secrets-folder",
+   "kind": "path",
+   "re": "\\.secre[t]s\\b",
+   "flags": "",
+   "severity": "block",
+   "scope": "all"
+  }
+ ],
+ "allow": [
+  {
+   "id": "a-vendored-bundles",
+   "ids": [
+    "phone",
+    "parcel",
+    "street",
+    "zip"
+   ],
+   "paths": [
+    "**/mermaid.min.js",
+    "**/vendor/pixi.mjs"
+   ]
+  }
+ ]
+}

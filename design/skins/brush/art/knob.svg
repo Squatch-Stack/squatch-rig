@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+<title>Brush knob: pen-drawn cap, knurl hatch and five ticks</title>
+<path d="M-30.76 30.76L-34.29 34.29M-40.19 -16.65L-44.81 -18.56M0 -43.5L0 -48.5M40.19 -16.65L44.81 -18.56M30.76 30.76L34.29 34.29" fill="none" stroke="var(--sq-comp-knob-outline, #1C160E)" stroke-width="2.4" stroke-linecap="round"/>
+<circle r="35" fill="var(--sq-comp-knob-cap, #FCFBF8)" stroke="var(--sq-comp-knob-outline, #1C160E)" stroke-width="2.6"/>
+<path d="M0 -29.6L0 -34.2M5.77 -29.03L6.67 -33.54M11.33 -27.35L13.09 -31.6M16.44 -24.61L19 -28.44M20.93 -20.93L24.18 -24.18M24.61 -16.44L28.44 -19M27.35 -11.33L31.6 -13.09M29.03 -5.77L33.54 -6.67M29.6 0L34.2 0M29.03 5.77L33.54 6.67M27.35 11.33L31.6 13.09M24.61 16.44L28.44 19M20.93 20.93L24.18 24.18M16.44 24.61L19 28.44M11.33 27.35L13.09 31.6M5.77 29.03L6.67 33.54M0 29.6L0 34.2M-5.77 29.03L-6.67 33.54M-11.33 27.35L-13.09 31.6M-16.44 24.61L-19 28.44M-20.93 20.93L-24.18 24.18M-24.61 16.44L-28.44 19M-27.35 11.33L-31.6 13.09M-29.03 5.77L-33.54 6.67M-29.6 0L-34.2 0M-29.03 -5.77L-33.54 -6.67M-27.35 -11.33L-31.6 -13.09M-24.61 -16.44L-28.44 -19M-20.93 -20.93L-24.18 -24.18M-16.44 -24.61L-19 -28.44M-11.33 -27.35L-13.09 -31.6M-5.77 -29.03L-6.67 -33.54" fill="none" stroke="var(--sq-comp-knob-outline, #1C160E)" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+<circle r="28" fill="var(--sq-comp-knob-cap, #FCFBF8)" stroke="var(--sq-comp-knob-outline, #1C160E)" stroke-width="2"/>
+</svg>

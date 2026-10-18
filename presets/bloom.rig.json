@@ -1,0 +1,248 @@
+{
+  "format": "squatch-rig/pipeline",
+  "version": 1,
+  "id": "rig_kh0z4u8zo",
+  "name": "Bloom · pick to sustain, into NAM Core",
+  "meta": {
+    "created": "2026-09-23T23:53:41.123Z",
+    "modified": "2026-09-23T23:53:41.123Z",
+    "owner": null,
+    "signature": null,
+    "parents": []
+  },
+  "models": {
+    "sha256:2d2d744516dc0197737a2c5001010429692d4cb20d72b08264781de626fcf4ca": {
+      "name": "NAM Core example · A2 slimmable",
+      "file": "namcore-example-A2.nam",
+      "family": "A2",
+      "arch": "Slimmable · 2 sizes · WaveNet A2 · 8ch · 23 layers",
+      "bytes": 665758
+    }
+  },
+  "irs": {},
+  "nodes": {
+    "input_q4xa9q8zo": {
+      "type": "input",
+      "label": "DI / Interface",
+      "pos": [
+        0,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "source": 0,
+        "channel": 0,
+        "gain": 0
+      }
+    },
+    "gate_tcb2d58zo": {
+      "type": "gate",
+      "label": "Gate",
+      "pos": [
+        170,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "threshold": -46,
+        "hysteresis": 4,
+        "attack": 1,
+        "hold": 40,
+        "release": 90,
+        "range": -70
+      }
+    },
+    "nam_ad4uh18zo": {
+      "type": "nam",
+      "label": "NAM Core head",
+      "pos": [
+        560,
+        0
+      ],
+      "bypass": false,
+      "model": "sha256:2d2d744516dc0197737a2c5001010429692d4cb20d72b08264781de626fcf4ca",
+      "params": {
+        "input": -6,
+        "output": 0,
+        "normalize": 1,
+        "dcblock": 1
+      }
+    },
+    "cab_mc3zgi8zo": {
+      "type": "cab",
+      "label": "Cab 4x12",
+      "pos": [
+        850,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "voice": 0,
+        "mic": 0.45,
+        "lowcut": 70,
+        "highcut": 9000,
+        "level": 0
+      }
+    },
+    "envfilter_tnprx78zo": {
+      "type": "envfilter",
+      "label": "Env Filter",
+      "pos": [
+        1030,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "sens": 12,
+        "lo": 250,
+        "hi": 2800,
+        "q": 4,
+        "attack": 6,
+        "release": 140,
+        "mode": 1,
+        "down": 0,
+        "mix": 0.3
+      }
+    },
+    "reverb_a367v68zo": {
+      "type": "reverb",
+      "label": "Hall",
+      "pos": [
+        1200,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "decay": 2.6,
+        "size": 1,
+        "damp": 6500,
+        "predelay": 18,
+        "mix": 0.18,
+        "width": 1
+      }
+    },
+    "limiter_b7r8qy8zo": {
+      "type": "limiter",
+      "label": "Limiter",
+      "pos": [
+        1370,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "gain": 6,
+        "ceiling": -1,
+        "release": 120
+      }
+    },
+    "output_6sgjml8zo": {
+      "type": "output",
+      "label": "Output",
+      "pos": [
+        1520,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "volume": 0
+      }
+    },
+    "bloom_custom": {
+      "type": "bloom",
+      "label": "Bloom · pick to sustain",
+      "pos": [
+        340,
+        0
+      ],
+      "bypass": false,
+      "params": {
+        "warmth": 0.5,
+        "bloom": 0.7,
+        "touch": 0.78,
+        "level": -3
+      }
+    }
+  },
+  "edges": {
+    "bloom_e0": {
+      "from": [
+        "input_q4xa9q8zo",
+        0
+      ],
+      "to": [
+        "gate_tcb2d58zo",
+        0
+      ]
+    },
+    "bloom_e1": {
+      "from": [
+        "gate_tcb2d58zo",
+        0
+      ],
+      "to": [
+        "bloom_custom",
+        0
+      ]
+    },
+    "bloom_e2": {
+      "from": [
+        "bloom_custom",
+        0
+      ],
+      "to": [
+        "nam_ad4uh18zo",
+        0
+      ]
+    },
+    "bloom_e3": {
+      "from": [
+        "nam_ad4uh18zo",
+        0
+      ],
+      "to": [
+        "cab_mc3zgi8zo",
+        0
+      ]
+    },
+    "bloom_e4": {
+      "from": [
+        "cab_mc3zgi8zo",
+        0
+      ],
+      "to": [
+        "envfilter_tnprx78zo",
+        0
+      ]
+    },
+    "bloom_e5": {
+      "from": [
+        "envfilter_tnprx78zo",
+        0
+      ],
+      "to": [
+        "reverb_a367v68zo",
+        0
+      ]
+    },
+    "bloom_e6": {
+      "from": [
+        "reverb_a367v68zo",
+        0
+      ],
+      "to": [
+        "limiter_b7r8qy8zo",
+        0
+      ]
+    },
+    "bloom_e7": {
+      "from": [
+        "limiter_b7r8qy8zo",
+        0
+      ],
+      "to": [
+        "output_6sgjml8zo",
+        0
+      ]
+    }
+  }
+}

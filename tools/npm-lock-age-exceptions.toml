@@ -1,0 +1,11 @@
+# Owner-approved exceptions to the 14-day lockfile age rule (tools/npm_lock_age.py). Empty is the normal state.
+# A security fix younger than 14 days needs the owner's review first; then add ONE entry per package, with the
+# lockfile's own integrity, the advisory id, and an expiry no later than the day the version turns 14 days old.
+#
+# [[allow_young]]
+# name = "undici"
+# version = "7.99.1"
+# integrity = "sha512-..."
+# reason = "GHSA-xxxx-xxxx-xxxx fix, 2026-10-14"
+# approver = "owner"
+# expires = "2026-10-28"

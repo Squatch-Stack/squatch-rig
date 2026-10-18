@@ -1,0 +1,65 @@
+name: CI
+
+# Builds both wasm files from pinned public sources (wasm/PINS: upstream NAM Core at one commit, one Emscripten version;
+# the second file adds wasm/experimental-fast.patch), scans EVERY file of the tree with the built wasm in it
+# (tools/public-guard.mjs), runs the tests, and on main attests the two wasm files with build provenance.
+# Pull requests build, scan and test but never attest.
+#
+# Tests that need private amp captures (the project owner's own, never published) skip themselves with the reason
+# printed. Everything else runs here against the two MIT NAM Core example models.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write       # build provenance (OIDC)
+      attestations: write
+    steps:
+      # Actions are pinned to a full commit SHA.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.23.2
+      - name: The guard catches a planted failure
+        run: node tools/public-guard.mjs --self-test
+      - name: No build output is committed
+        run: |
+          bad="$(git ls-files '*.wasm')"
+          if [ -n "$bad" ]; then echo "committed build output: $bad" >&2; exit 1; fi
+      - name: Build nam.wasm and nam-experimental.wasm from the pinned sources
+        run: wasm/ci-build.sh "$RUNNER_TEMP/wasm-out" "$RUNNER_TEMP/wasm-work"
+      - name: Place the wasm files where the app and the tests read them
+        run: |
+          mkdir -p web/wasm
+          cp "$RUNNER_TEMP/wasm-out/nam.wasm" "$RUNNER_TEMP/wasm-out/nam-experimental.wasm" web/wasm/
+      - name: Guard the whole tree, binaries included
+        run: node tools/public-guard.mjs .
+      - name: Install dependencies (lockfile only, no install scripts)
+        run: npm ci --ignore-scripts
+      - name: ffmpeg, for the loudness cross-check test
+        run: sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: Tests
+        run: npm test
+      - name: Attest the wasm files
+        if: github.event_name != 'pull_request'
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            web/wasm/nam.wasm
+            web/wasm/nam-experimental.wasm

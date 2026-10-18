@@ -1,0 +1,36 @@
+{
+  "name": "squatch-rig",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser guitar rig: NAM (WebAssembly) + effects in AudioWorklets, edited as a node graph on a WebGL canvas.",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "serve": "node server.mjs",
+    "figures": "node tools/readme-figures.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node tools/browser-check.mjs",
+    "test:picker": "node tools/picker-browser-check.mjs",
+    "test:release": "node tools/release-browser-check.mjs",
+    "test:head": "node tools/head-browser-check.mjs",
+    "test:skin": "node tools/skin-check.mjs",
+    "build:wasm": "wasm/build.sh",
+    "bench:nam": "node tools/bench-nam.mjs",
+    "render": "node tools/render.mjs",
+    "test:live": "node tools/live-check.mjs",
+    "contract:build": "node tools/build-bloom-contract.mjs",
+    "contract:check": "node tools/build-bloom-contract.mjs --check",
+    "export:public": "node tools/export-public.mjs"
+  },
+  "dependencies": {
+    "pixi.js": "^8.0.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "puppeteer-core": "^25.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Squatch-Stack/squatch-rig.git"
+  }
+}
